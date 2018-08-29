@@ -21,12 +21,18 @@ class MealTableViewController: UITableViewController {
     
     var isTableEditing = false
     var isVisible = true
+    var isDarkMode: Bool = false
     
     var meals = [Meal]()
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        registerSettingsBundle()
+        NotificationCenter.default.addObserver(self, selector: #selector(MealTableViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        defaultsChanged()
+        
         navigationItem.leftBarButtonItem = editButtonItem
         if let savedMeals = loadMeals() {
             meals += savedMeals
@@ -36,6 +42,42 @@ class MealTableViewController: UITableViewController {
             loadSampleMeals()
         }
         //loadSampleMeals()
+    }
+    
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
+    }
+    @objc func defaultsChanged(){
+        if UserDefaults.standard.bool(forKey: "DARK_THEME_KEY"){
+            //dark theme enabled
+            isDarkMode = true
+            updateToDarkTheme()
+        } else {
+            //dark theme disabled
+            isDarkMode = false
+            updateToLightTheme()
+        }
+    }
+    
+    func updateToDarkTheme(){
+        // background color
+        self.view.backgroundColor = UIColor.black
+        
+        // nav bar color
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+    }
+
+    func updateToLightTheme(){
+        // background color
+        self.view.backgroundColor = UIColor.white
+        
+        // nav bar color
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.default
+        self.navigationController?.navigationBar.tintColor = .systemBlue
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +102,45 @@ class MealTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
+        if(isDarkMode){
+            // cell background color
+            cell.backgroundColor = UIColor.darkGray
+            
+            // text color
+            cell.nameLabel.textColor = UIColor.white
+            cell.episodeLabel.textColor = UIColor.white
+            cell.totalLabel.textColor = UIColor.white
+            
+            //button color
+            cell.stepper.tintColor = UIColor.white
+            cell.stepper.layer.borderColor = UIColor.white.cgColor
+            
+            // progressview color
+            cell.progressView.trackTintColor = UIColor.black
+            cell.progressView.progressTintColor = UIColor.white
+            
+        } else {
+            // cell background color
+            cell.backgroundColor = UIColor.white
+            
+            // text color
+            cell.nameLabel.textColor = UIColor.black
+            cell.episodeLabel.textColor = UIColor.black
+            cell.totalLabel.textColor = UIColor.black
+            
+            //button color
+            //cell.stepper.tintColor = UIColor.white
+            cell.stepper.layer.borderColor = UIColor.black.cgColor
+            cell.stepper.tintColor = .systemBlue
+            
+            
+            // progressview color
+            cell.progressView.trackTintColor = UIColor.lightGray
+            cell.progressView.progressTintColor = .systemBlue
+
+            
+        }
+        
         let meal = meals[indexPath.row]
         
         cell.stepper.tag = indexPath.row
@@ -67,6 +148,7 @@ class MealTableViewController: UITableViewController {
         if(Int(meal.episode)! > Int(meal.total)!){
             meal.episode = meal.total
         }
+        
         cell.nameLabel.text = meal.name
         cell.photoImageView.image = meal.photo
         //cell.ratingControl.rating = meal.rating
@@ -94,7 +176,6 @@ class MealTableViewController: UITableViewController {
         cell.progressView.setProgress(currentProgress, animated: false)
         //cell.progressView.progress = currentProgress
     
-        
         return cell
     }
 
@@ -251,3 +332,11 @@ class MealTableViewController: UITableViewController {
     }
 
 }
+
+extension UIColor {
+    internal class var systemBlue: UIColor {
+        return UIButton(type: .system).tintColor
+    }
+}
+
+

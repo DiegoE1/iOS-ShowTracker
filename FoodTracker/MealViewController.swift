@@ -25,6 +25,10 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerSettingsBundle()
+        NotificationCenter.default.addObserver(self, selector: #selector(MealViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        defaultsChanged()
+        
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         
@@ -37,9 +41,70 @@ import UIKit
             //ratingControl.rating = meal.rating
             
         }
-        
         updateSaveButtonState()
     }
+    
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
+    }
+    @objc func defaultsChanged(){
+        if UserDefaults.standard.bool(forKey: "DARK_THEME_KEY"){
+            //dark themed enabled
+            updateToDarkTheme()
+        } else {
+            //dark themed disabled
+            updateToLightTheme()
+        }
+    }
+    func updateToDarkTheme(){
+        // background color
+        self.view.backgroundColor = UIColor.darkGray
+        
+        // nav bar color
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        // text field background color
+        self.nameTextField.backgroundColor = UIColor.lightGray
+        self.episodeTextField.backgroundColor = UIColor.lightGray
+        self.totalTextField.backgroundColor = UIColor.lightGray
+        
+        // text field text color
+        self.nameTextField.textColor = UIColor.white
+        self.episodeTextField.textColor = UIColor.white
+        self.totalTextField.textColor = UIColor.white
+        
+        // text field keyboard appearance
+        self.nameTextField.keyboardAppearance = .dark
+        self.episodeTextField.keyboardAppearance = .dark
+        self.totalTextField.keyboardAppearance = .dark
+        
+    }
+    func updateToLightTheme(){
+        // background color
+        self.view.backgroundColor = UIColor.white
+        
+        // nav bar color
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.default
+        self.navigationController?.navigationBar.tintColor = .systemBlue
+        
+        // text field background color
+        self.nameTextField.backgroundColor = UIColor.white
+        self.episodeTextField.backgroundColor = UIColor.white
+        self.totalTextField.backgroundColor = UIColor.white
+        
+        // text field text color
+        self.nameTextField.textColor = UIColor.black
+        self.episodeTextField.textColor = UIColor.black
+        self.totalTextField.textColor = UIColor.black
+        
+        // text field appearance
+        self.nameTextField.keyboardAppearance = .default
+        self.episodeTextField.keyboardAppearance = .default
+        self.totalTextField.keyboardAppearance = .default
+    }
+    
     //MARK: UItextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Hide Keyboard
@@ -134,4 +199,7 @@ import UIKit
         saveButton.isEnabled = !text.isEmpty
     }
 }
+
+
+
 
