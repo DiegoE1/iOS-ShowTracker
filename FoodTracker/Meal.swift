@@ -1,6 +1,6 @@
 //
 //  Meal.swift
-//  FoodTracker
+//  ShowTracker
 //
 //  Created by Diego Espinosa on 8/17/18.
 //  Copyright © 2018 Diego Espinosa. All rights reserved.
@@ -17,7 +17,6 @@ class Meal: NSObject, NSCoding{
     var photo: UIImage?
     var episode: String
     var total: String
-    //var rating: Int
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
@@ -29,7 +28,6 @@ class Meal: NSObject, NSCoding{
         static let photo = "photo"
         static let episode = "episode"
         static let total = "total"
-        //static let rating = "rating"
     }
     
     //MARK: Initialization
@@ -51,7 +49,6 @@ class Meal: NSObject, NSCoding{
         self.photo = photo
         self.episode = episode
         self.total = total
-        //self.rating = rating
     }
     
     //MARK: NSCoding
@@ -60,7 +57,6 @@ class Meal: NSObject, NSCoding{
         aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(episode, forKey: PropertyKey.episode)
         aCoder.encode(total, forKey: PropertyKey.total)
-        //aCoder.encode(rating, forKey: PropertyKey.rating)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -78,7 +74,6 @@ class Meal: NSObject, NSCoding{
         }
         
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
-        //let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
         self.init(name: name, photo: photo, episode: episode, total: total)
     }

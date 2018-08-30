@@ -13,7 +13,6 @@ import UIKit
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
-    //@IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var episodeTextField: UITextField!
     @IBOutlet weak var totalTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -33,12 +32,10 @@ import UIKit
         nameTextField.delegate = self
         
         if let meal = meal {
-            //navigationItem.title = meal.name
             nameTextField.text = meal.name
             photoImageView.image = meal.photo
             episodeTextField.text = meal.episode
             totalTextField.text = meal.total
-            //ratingControl.rating = meal.rating
             
         }
         updateSaveButtonState()
@@ -171,7 +168,6 @@ import UIKit
         } else {
             let name = nameTextField.text ?? ""
             let photo = photoImageView.image
-            //let rating = ratingControl.rating
             let episode = episodeTextField.text ?? ""
             let total = totalTextField.text ?? ""
             

@@ -18,8 +18,6 @@ class MealTableViewCell: UITableViewCell {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var stepper: UIButton!
     
-    //@IBOutlet weak var ratingControl: RatingControl!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()

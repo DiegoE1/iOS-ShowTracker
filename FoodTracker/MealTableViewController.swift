@@ -41,7 +41,6 @@ class MealTableViewController: UITableViewController {
             // Load the sample data.
             loadSampleMeals()
         }
-        //loadSampleMeals()
     }
     
     func registerSettingsBundle(){
@@ -152,17 +151,12 @@ class MealTableViewController: UITableViewController {
         
         cell.nameLabel.text = meal.name
         cell.photoImageView.image = meal.photo
-        //cell.ratingControl.rating = meal.rating
         cell.episodeLabel.text = meal.episode
         cell.totalLabel.text = meal.total
         
         if(Int(cell.episodeLabel.text!)! >= Int(cell.totalLabel.text!)!){
-//            cell.episodeLabel.text = cell.totalLabel.text
-//            meal.episode = meal.total
             cell.stepper.isHidden = true
         }else{
-//            cell.episodeLabel.text = String(epCount + 1)
-//            meal.episode = String(epCount + 1)
             cell.stepper.isHidden = false
         }
 
@@ -175,7 +169,6 @@ class MealTableViewController: UITableViewController {
         currentProgress = Float((epi/tot))
         
         cell.progressView.setProgress(currentProgress, animated: false)
-        //cell.progressView.progress = currentProgress
     
         return cell
     }
@@ -303,9 +296,6 @@ class MealTableViewController: UITableViewController {
     //MARK: Private Methods
     
     private func loadSampleMeals(){
-        //let photo1 = UIImage(named: "meal1")
-        //let photo2 = UIImage(named: "meal2")
-        //let photo3 = UIImage(named: "meal3")
         let photoUnknown = UIImage(named: "defaultPhoto")
         
         guard let meal1 = Meal(name: "Sample Show", photo: photoUnknown, episode: "7", total: "24") else {
