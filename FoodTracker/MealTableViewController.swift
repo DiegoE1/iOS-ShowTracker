@@ -66,6 +66,7 @@ class MealTableViewController: UITableViewController {
         
         // nav bar color
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
     }
