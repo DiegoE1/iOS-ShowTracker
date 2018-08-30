@@ -302,17 +302,18 @@ class MealTableViewController: UITableViewController {
     //MARK: Private Methods
     
     private func loadSampleMeals(){
-        let photo1 = UIImage(named: "meal1")
-        let photo2 = UIImage(named: "meal2")
-        let photo3 = UIImage(named: "meal3")
+        //let photo1 = UIImage(named: "meal1")
+        //let photo2 = UIImage(named: "meal2")
+        //let photo3 = UIImage(named: "meal3")
+        let photoUnknown = UIImage(named: "defaultPhoto")
         
-        guard let meal1 = Meal(name: "Sample Show", photo: photo1, episode: "1", total: "24") else {
+        guard let meal1 = Meal(name: "Sample Show", photo: photoUnknown, episode: "7", total: "24") else {
             fatalError("Unable to instantiate meal")
         }
-        guard let meal2 = Meal(name: "Sample Show 2", photo: photo2, episode: "23", total: "100") else{
+        guard let meal2 = Meal(name: "Sample Show 2", photo: photoUnknown, episode: "23", total: "100") else{
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal3 = Meal(name: "Sample Show 3", photo: photo3, episode: "20", total: "50") else{
+        guard let meal3 = Meal(name: "Sample Show 3", photo: photoUnknown, episode: "20", total: "50") else{
             fatalError("Unable to instantiate meal 3")
         }
         meals += [meal1, meal2, meal3]
