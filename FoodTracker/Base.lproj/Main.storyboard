@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -44,7 +45,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fq3-Cq-umt">
-                                            <rect key="frame" x="106" y="77" width="245" height="2"/>
+                                            <rect key="frame" x="141.5" y="77" width="174" height="2"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="trackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,7 +106,7 @@
                                         <constraint firstItem="5s7-xX-c8K" firstAttribute="top" secondItem="o63-7C-lyx" secondAttribute="top" id="uij-nV-rPZ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="VUw-qk-kly" secondAttribute="trailing" constant="8" id="w6G-vF-SQF"/>
                                         <constraint firstItem="Lg7-uY-Kys" firstAttribute="bottom" secondItem="o63-7C-lyx" secondAttribute="bottomMargin" constant="-10" id="x3Y-ha-mVy"/>
-                                        <constraint firstItem="Lg7-uY-Kys" firstAttribute="leading" secondItem="Fq3-Cq-umt" secondAttribute="leading" id="xxA-ut-I8T"/>
+                                        <constraint firstItem="Lg7-uY-Kys" firstAttribute="centerX" secondItem="Fq3-Cq-umt" secondAttribute="leading" id="xxA-ut-I8T"/>
                                         <constraint firstItem="Lg7-uY-Kys" firstAttribute="top" secondItem="VUw-qk-kly" secondAttribute="bottom" constant="18" id="yPf-ve-77K"/>
                                         <constraint firstItem="VUw-qk-kly" firstAttribute="top" secondItem="o63-7C-lyx" secondAttribute="topMargin" constant="-2" id="yrN-wu-G0l"/>
                                     </constraints>
