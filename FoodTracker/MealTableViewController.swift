@@ -1,6 +1,6 @@
 //
 //  MealTableViewController.swift
-//  FoodTracker
+//  ShowTracker
 //
 //  Created by Diego Espinosa on 8/17/18.
 //  Copyright © 2018 Diego Espinosa. All rights reserved.
@@ -38,7 +38,6 @@ class MealTableViewController: UITableViewController {
             meals += savedMeals
         }
         else {
-            // Load the sample data.
             loadSampleMeals()
         }
     }
@@ -82,7 +81,6 @@ class MealTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source

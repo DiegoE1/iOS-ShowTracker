@@ -44,7 +44,6 @@ class Meal: NSObject, NSCoding{
             return nil
         }
         
-        
         self.name = name
         self.photo = photo
         self.episode = episode

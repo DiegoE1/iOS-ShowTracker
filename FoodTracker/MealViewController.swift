@@ -1,6 +1,6 @@
 //
 //  MealViewController.swift
-//  FoodTracker
+//  ShowTracker
 //
 //  Created by Diego Espinosa on 8/15/18.
 //  Copyright © 2018 Diego Espinosa. All rights reserved.
@@ -28,7 +28,6 @@ import UIKit
         NotificationCenter.default.addObserver(self, selector: #selector(MealViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         defaultsChanged()
         
-        // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         
         if let meal = meal {
@@ -36,7 +35,6 @@ import UIKit
             photoImageView.image = meal.photo
             episodeTextField.text = meal.episode
             totalTextField.text = meal.total
-            
         }
         updateSaveButtonState()
     }
@@ -77,7 +75,6 @@ import UIKit
         self.nameTextField.keyboardAppearance = .dark
         self.episodeTextField.keyboardAppearance = .dark
         self.totalTextField.keyboardAppearance = .dark
-        
     }
     func updateToLightTheme(){
         // background color
@@ -116,7 +113,6 @@ import UIKit
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
-        //navigationItem.title = textField.text
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -152,7 +148,6 @@ import UIKit
         
         super.prepare(for: segue, sender: sender)
         
-        // Configure the destination view controller only when the save button is pressed.
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
@@ -173,7 +168,6 @@ import UIKit
             
             print("meal saved")
             
-            // Set the meal to be passed to MealTableViewController after the unwind segue.
             meal = Meal(name: name, photo: photo, episode: episode, total: total)
         }
     }

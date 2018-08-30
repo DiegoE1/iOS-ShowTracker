@@ -1,6 +1,6 @@
 //
 //  MealTableViewCell.swift
-//  FoodTracker
+//  ShowTracker
 //
 //  Created by Diego Espinosa on 8/17/18.
 //  Copyright © 2018 Diego Espinosa. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FoodTracker
+//  ShowTracker
 //
 //  Created by Diego Espinosa on 8/15/18.
 //  Copyright © 2018 Diego Espinosa. All rights reserved.
