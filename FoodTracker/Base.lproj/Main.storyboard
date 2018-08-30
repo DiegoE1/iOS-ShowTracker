@@ -186,8 +186,14 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mKl-ni-PWt" secondAttribute="trailing" id="MzY-dq-U7l"/>
+                                    <constraint firstAttribute="trailing" secondItem="rig-rd-bXR" secondAttribute="trailing" id="SQg-oj-2gJ"/>
+                                    <constraint firstItem="mKl-ni-PWt" firstAttribute="leading" secondItem="o2f-gJ-Weh" secondAttribute="leading" id="Sxn-Ln-osr"/>
+                                    <constraint firstAttribute="trailing" secondItem="JUx-cx-TSQ" secondAttribute="trailing" id="WNv-1q-JSV"/>
                                     <constraint firstItem="mKl-ni-PWt" firstAttribute="leading" secondItem="amu-YM-2Fy" secondAttribute="leading" id="fmh-tY-nqX"/>
+                                    <constraint firstItem="JUx-cx-TSQ" firstAttribute="leading" secondItem="o2f-gJ-Weh" secondAttribute="leading" id="rGv-Mv-8tq"/>
                                     <constraint firstItem="rig-rd-bXR" firstAttribute="leading" secondItem="mKl-ni-PWt" secondAttribute="leading" id="vff-Yl-nCK"/>
+                                    <constraint firstItem="rig-rd-bXR" firstAttribute="leading" secondItem="o2f-gJ-Weh" secondAttribute="leading" id="xpr-Tg-YFi"/>
                                     <constraint firstItem="JUx-cx-TSQ" firstAttribute="leading" secondItem="rig-rd-bXR" secondAttribute="leading" id="z0d-qK-kFV"/>
                                 </constraints>
                             </stackView>
